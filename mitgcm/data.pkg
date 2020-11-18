@@ -1,0 +1,8 @@
+# Packages
+ &PACKAGES
+# useOBCS=.FALSE.,
+# useKPP =.FALSE.,
+ useFLT=.TRUE.,
+ useDiagnostics=.TRUE.,
+ usePTRACERS=.TRUE.,
+ &

@@ -1,0 +1,12 @@
+# *********************
+# Float Namelist
+# *********************
+ &FLT_NML
+ flt_int_traj =  300.,
+ flt_int_prof =  0.,
+ flt_noise    =  0.0,
+# flt_Iter0    =  0,
+# flt_Iter0    =  2280960,
+ flt_file     =  './FLT/initBreakIWnonhydro.dat',
+ &
+

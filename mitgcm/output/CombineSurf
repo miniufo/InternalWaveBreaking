@@ -1,0 +1,25 @@
+#!/bin/bash
+
+fname='Surf.dat'
+
+if [ -f ${fname} ]
+then
+	rm ${fname}
+fi
+
+for vars in $@
+do
+	count=0
+
+	for file in ${vars}.*.data
+	do
+		cat ${file} >> ${fname}
+		count=`expr ${count} + 1`
+	done
+
+#	rm ${vars}.*.data
+#	rm ${vars}.*.meta
+	
+	echo "total count for ${vars}: ${count}"
+done
+

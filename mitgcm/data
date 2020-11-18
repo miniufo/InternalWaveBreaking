@@ -1,0 +1,89 @@
+# ====================
+# | Model parameters |
+# ====================
+#
+# Continuous equation parameters
+ &PARM01
+ sRef= 100*35.,
+# viscAr=1.E-5,
+# viscAh=1.E-5,
+# viscC2Smag=1,
+ viscA4Grid=0.08,
+ viscA4GridMax=0.6
+ viscA4GridMin=0.03
+ no_slip_sides=.FALSE.,
+ no_slip_bottom=.FALSE.,
+ bottomDragLinear=5e-3,
+ diffKhT=2.E-5,
+ diffKrT=2.E-5,
+ f0=0,
+ beta=0.E-11,
+ eosType='LINEAR',
+ tAlpha=2.E-4,
+ sBeta =0.E-4,
+ gravity=9.81,
+ multiDimAdvection=.TRUE.,
+ tempAdvScheme=80,
+ tempVertAdvScheme=80,
+# implicitFreeSurface=.TRUE.,
+# implicSurfPress=0.5,
+# implicDiv2DFlow=0.5,
+# implicitDiffusion=.TRUE.,
+# implicitViscosity=.TRUE.,
+# exactConserv=.TRUE.,
+ nonHydrostatic=.TRUE.,
+ rigidLid=.TRUE.,
+ hFacMin=0.2,
+ hFacMinDr=0.3
+ staggerTimeStep=.TRUE.,
+# nonlinFreeSurf=3,
+# hFacInf=0.3,
+# hFacSup=1,
+ saltStepping=.FALSE.,
+#- not safe to use globalFiles in multi-processors runs
+#globalFiles=.TRUE.,
+ readBinaryPrec=32,
+ writeBinaryPrec=32,
+ writeStatePrec=32,
+ useSingleCpuIo=.TRUE.,
+ &
+
+# Elliptic solver parameters
+ &PARM02
+ cg2dMaxIters=1000,
+ cg2dTargetResidual=1.E-12,
+ cg3dMaxIters=500,
+ cg3dTargetResidual=1.E-12,
+ &
+
+# Time stepping parameters
+ &PARM03
+# nIter0=14400,
+ startTime=0.,
+ endTime=432000,
+# endTime=10,
+ deltaT=2,
+ abEps=0.1,
+ pChkptFreq=43200.,
+ chkptFreq=0.,
+ dumpFreq=0.,
+ dumpInitAndLast = .FALSE.,
+ monitorFreq=1800.,
+ monitorSelect=2,
+ &
+
+# Gridding parameters
+ &PARM04
+ usingCartesianGrid=.TRUE.,
+ delX=4480*2,
+ delY=10,
+ delR=100*2.,
+ &
+
+# Input datasets
+ &PARM05
+ bathyFile='./BATH/bathy.dat',
+ hydrogThetaFile = './IC/TInit.dat',
+# zonalWindFile = './EXF/wndStrs.dat',
+ the_run_name = 'breakingIW',
+ &

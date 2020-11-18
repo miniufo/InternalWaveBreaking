@@ -1,0 +1,21 @@
+#PBS -N nonhydro
+#PBS -l nodes=2:ppn=28
+#PBS -l walltime=720:00:00
+#PBS -q batch
+#PBS -V
+#PBS -S /bin/bash 
+          
+
+          
+### intel mpi 
+source /public/software/profile.d/mpi_mvapich2-2.2b-intel.sh
+
+cd $PBS_O_WORKDIR
+EXEC=/public/home/qianyk/MITgcm_c66g/verification/breakingIW/nonHydro/mitgcmuv
+
+NSLOTS=`cat $PBS_NODEFILE | wc -l`
+echo "This jobs is "$PBS_JOBID@$PBS_QUEUE" "$NSLOTS" "$PBS_NODEFILE
+
+
+time -p mpirun -np 56 -machinefile $PBS_NODEFILE  $EXEC
+
